@@ -35,7 +35,7 @@ public class LoginControlleur extends HttpServlet {
 		if(isAuthenticated) {
 			response.sendRedirect("admin/dashboard");
 		}else {
-			response.sendRedirect("auth/login.jsp");
+			response.sendRedirect("/login");
 		}
 	}
 
