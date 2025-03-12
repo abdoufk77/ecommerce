@@ -12,12 +12,12 @@ public class UserDao implements IUserDao{
 	EntityManager entityManager = JpaUtil.getEntityManager();
 
 	@Override
-	public Optional<User> findUser(String username, String password) {
+	public Optional<User> findUser(String email, String password) {
 		
 		try {
 			User user = entityManager.createQuery(
-					"select u from User u where u.prenom =: username and u.password =: password",User.class)
-					.setParameter("username",username)
+					"select u from User u where u.email =: email and u.password =: password",User.class)
+					.setParameter("email",email)
 					.setParameter("password", password)
 					.getSingleResult();
 			

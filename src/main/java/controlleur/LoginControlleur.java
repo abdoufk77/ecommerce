@@ -27,13 +27,13 @@ public class LoginControlleur extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");
+		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		boolean isAuthenticated = loginService.IsUserAuthenticated(username,password);
+		boolean isAuthenticated = loginService.IsUserAuthenticated(email,password);
 		System.out.print(isAuthenticated);
 		
 		if(isAuthenticated) {
-			response.sendRedirect("admin/dashboard.jsp");
+			response.sendRedirect("admin/dashboard");
 		}else {
 			response.sendRedirect("auth/login.jsp");
 		}

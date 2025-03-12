@@ -2,6 +2,6 @@ package service;
 
 public interface ILoginService {
 
-	boolean IsUserAuthenticated(String username, String password);
+	boolean IsUserAuthenticated(String email, String password);
 
 }

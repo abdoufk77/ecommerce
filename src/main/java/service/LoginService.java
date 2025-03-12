@@ -11,11 +11,11 @@ public class LoginService implements ILoginService{
 	private IUserDao userDao;
 	
 	@Override
-	public boolean IsUserAuthenticated(String username, String password) {
+	public boolean IsUserAuthenticated(String email, String password) {
 		
 		userDao = new UserDao();
 		
-		Optional<User> userOptional = userDao.findUser(username, password);
+		Optional<User> userOptional = userDao.findUser(email, password);
 		if(userOptional.isEmpty()) {
 			return false;
 		}
