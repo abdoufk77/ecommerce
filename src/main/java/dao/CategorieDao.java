@@ -2,16 +2,36 @@ package dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import entitie.Categorie;
+import util.JpaUtil;
 
 public class CategorieDao implements ICategorieDao{
 
+	EntityManager entityManager = JpaUtil.getEntityManager();
+	
 	@Override
 	public List<Categorie> getCategories() {
-		List<Categorie> categories = List.of(new Categorie("cat1"),new Categorie("cat2"),
-				new Categorie("cat3"));
+		return entityManager.createQuery("SELECT c FROM Categorie c",Categorie.class).getResultList();
+	}
+
+	@Override
+	public void ajouterCategorie(Categorie categorie) {
+		// TODO Auto-generated method stub
 		
-		return categories;
+	}
+
+	@Override
+	public void modifierCategorie(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void suppmierCategorie(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
