@@ -9,6 +9,10 @@ public class CategorieDTO {
 		this.name = name;
 	}
 	
+	public CategorieDTO(String name) {
+		this.name = name;
+	}
+	
 	public Long getId() {
 		return id;
 	}
