@@ -14,16 +14,19 @@
 <div class="container">
 	<div class="my-5">
 		<div class="d-flex justify-content-end"> 
-			<a href="#" class="btn btn-primary h-25 mx-2" style="width: 15%">
+			<a href="/E-commerce/admin/categorie/add" class="btn btn-primary h-25 mx-2" style="width: 15%">
 				<span class="ml-2">Ajouter categorie</span>
 				<i class="fa-solid fa-plus"></i>	
 			</a>
-			<div class="input-group mb-3 h-25" style="width: 30%">
-			  <input type="text" class="form-control" placeholder="Chercher categorie" aria-label="Recipient's username" aria-describedby="basic-addon2">
-			  <span class="input-group-text" id="basic-addon2">
-			  	<i class="fa-solid fa-magnifying-glass"></i>
-			  </span>
-			</div>
+			<form method="get" action="/E-commerce/admin/categorie" style="width: 30%">
+				<div class="input-group mb-3 h-25">
+				  <input type="text" name="motCle" class="form-control" placeholder="Chercher categorie" aria-describedby="basic-addon2" value="${ motCle }">
+				  <span class="input-group-text" id="basic-addon2">
+				  	<i class="fa-solid fa-magnifying-glass"></i>
+				  </span>
+				</div>
+			</form>
+			
 		</div>
 	
 		<table class="table table-striped table-bordered ">
@@ -40,14 +43,26 @@
 		      <th scope="row">${ categorie.id }</th>
 		      <td>${ categorie.name }</td>
 		      <td>
-		      	<a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Edit</a>
+		      	<a href="/E-commerce/admin/categorie/${ categorie.id }/edit" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Edit</a>
 		      	<span> | </span>
-		      	<a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Delete</a>
+		      	<a href="/E-commerce/admin/categorie/${ categorie.id }" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" onclick="return confirm('Voulez-vous supprimer cet categorie ?')">Delete</a>
 		      </td>
 		   </tr>
 		  </c:forEach>   
 		  </tbody>
 		</table>
+		
+		<div>
+			<nav aria-label="...">
+			  <ul class="pagination pagination-sm">
+			    <li class="page-item active" aria-current="page">
+			      <span class="page-link">1</span>
+			    </li>
+			    <li class="page-item"><a class="page-link" href="#">2</a></li>
+			    <li class="page-item"><a class="page-link" href="#">3</a></li>
+			  </ul>
+			</nav>
+		</div>
 	</div>
 </div>
 </body>

@@ -6,7 +6,9 @@ import entitie.Categorie;
 
 public interface ICategorieDao {
 	List<Categorie> getCategories();
-	void ajouterCategorie(Categorie categorie);
-	void modifierCategorie(Long id);
-	void suppmierCategorie(Long id);
+	Categorie getById(Long id);
+	List<Categorie> categoriesParMc(String mc);
+	void save(Categorie categorie);
+	void edit(Long id,Categorie categorie);
+	void delete(Long id);
 }
